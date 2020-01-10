@@ -79,8 +79,7 @@ public class MainActivity extends Activity {
      * Initialize all fields from the personal info saved in the SharedPreferences.
      */
     private void populateUi() {
-        SharedPreferenceEntry sharedPreferenceEntry;
-        sharedPreferenceEntry = mSharedPreferencesHelper.getPersonalInfo();
+        SharedPreferenceEntry sharedPreferenceEntry = mSharedPreferencesHelper.getPersonalInfo();
         mNameText.setText(sharedPreferenceEntry.getName());
         Calendar dateOfBirth = sharedPreferenceEntry.getDateOfBirth();
         mDobPicker.init(dateOfBirth.get(Calendar.YEAR), dateOfBirth.get(Calendar.MONTH),

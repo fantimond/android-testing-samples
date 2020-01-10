@@ -101,6 +101,10 @@ public class SharedPreferencesHelperTest {
                 + "correctly",
                 mSharedPreferenceEntry.getEmail(),
                 is(equalTo(savedSharedPreferenceEntry.getEmail())));
+
+        assertThat("Checking that year field is initialized correctly in TEST_DATE_OF_BIRTH",
+                mSharedPreferenceEntry.getDateOfBirth().get(Calendar.YEAR),
+                is(equalTo(1980)));
     }
 
     @Test
