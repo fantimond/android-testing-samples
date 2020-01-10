@@ -18,6 +18,7 @@ package com.example.android.testing.unittesting.basicunitandroidtest;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.widget.EditText;
@@ -46,7 +47,7 @@ public class MainActivity extends Activity {
      */
     public void updateHistory(View view) {
         // Get the text to add and timestamp.
-        EditText editText = (EditText) view.getRootView().findViewById(R.id.editText);
+        EditText editText = view.getRootView().findViewById(R.id.editText);
         CharSequence textToAdd = editText.getText();
         long timestamp = System.currentTimeMillis();
 
@@ -72,6 +73,7 @@ public class MainActivity extends Activity {
 
         if (savedInstanceState != null) {
             // We've got a past state, apply it to the UI.
+            Log.d(this.getPackageName(), "Restore from parceable");
             mLogHistory = savedInstanceState.getParcelable(KEY_HISTORY_DATA);
             for (Pair<String, Long> entry : mLogHistory.getData()) {
                 appendEntryToView(entry.first, entry.second);
