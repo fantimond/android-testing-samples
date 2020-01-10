@@ -16,13 +16,18 @@
 
 package com.example.android.testing.androidjunitrunnersample;
 
+import androidx.test.ext.junit.runners.AndroidJUnit4;
 import junit.framework.TestSuite;
 
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
 import org.junit.internal.builders.AllDefaultPossibilitiesBuilder;
 
 import androidx.test.filters.LargeTest;
 import androidx.test.runner.AndroidJUnitRunner;
-import android.test.ActivityInstrumentationTestCase2;
+import androidx.test.rule.ActivityTestRule;
+import org.junit.runner.RunWith;
 
 import static com.example.android.testing.androidjunitrunnersample.HintMatcher.withHint;
 import static androidx.test.espresso.Espresso.onView;
@@ -32,41 +37,41 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
 /**
- * JUnit3 Ui Tests for {@link CalculatorActivity} using the {@link AndroidJUnitRunner}. This class
- * uses the Junit3 syntax for tests.
+ * JUnit4 Ui Tests for {@link CalculatorActivity} using the {@link AndroidJUnitRunner}. This class
+ * uses the Junit4 syntax for tests.
  *
  * <p> With the new AndroidJUnit runner you can run both JUnit3 and JUnit4 tests in a single test
  * test suite. The {@link AndroidRunnerBuilder} which extends JUnit's {@link
  * AllDefaultPossibilitiesBuilder} will create a single {@link TestSuite} from all tests and run
  * them. </p>
  */
+@RunWith(AndroidJUnit4.class)
 @LargeTest
-public class OperationHintInstrumentationTest
-        extends ActivityInstrumentationTestCase2<CalculatorActivity> {
+public class OperationHintInstrumentationTest {
 
     private CalculatorActivity mActivity;
 
-    public OperationHintInstrumentationTest() {
-        super(CalculatorActivity.class);
+    @Rule
+    public ActivityTestRule<CalculatorActivity> activityRule = new ActivityTestRule<>(CalculatorActivity.class);
+
+    @Before
+    public void setUp() {
+        mActivity = activityRule.getActivity();
     }
 
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-
-        // Espresso does not start the Activity for you we need to do this manually here.
-        mActivity = getActivity();
-    }
-
+    @Test
     public void testPreconditions() {
         assertThat(mActivity, notNullValue());
     }
 
+
+    @Test
     public void testEditText_OperandOneHint() {
         String operandOneHint = mActivity.getString(R.string.type_operand_one_hint);
         onView(withId(R.id.operand_one_edit_text)).check(matches(withHint(operandOneHint)));
     }
 
+    @Test
     public void testEditText_OperandTwoHint() {
         String operandTwoHint = mActivity.getString(R.string.type_operant_two_hint);
         onView(withId(R.id.operand_two_edit_text)).check(matches(withHint(operandTwoHint)));
