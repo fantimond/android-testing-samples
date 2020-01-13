@@ -62,8 +62,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
           mTextView.setText(text);
         } else if (view.getId() == activityChangeTextBtnId) {
           // Second button's interaction: start an activity and send a message to it.
-          Intent intent = com.example.android.testing.espresso.BasicSample.ShowTextActivity
-              .newStartIntent(this, text);
+          Intent intent = ShowTextActivity.newStartIntent(this, text);
           startActivity(intent);
         }
     }
