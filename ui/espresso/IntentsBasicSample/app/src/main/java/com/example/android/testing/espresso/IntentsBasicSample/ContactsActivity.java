@@ -22,7 +22,7 @@ import android.os.Bundle;
 import androidx.annotation.VisibleForTesting;
 
 /**
- * This a placeholder Activity for a contacts screen. This activity is never opened and does not
+ * This is a placeholder Activity for a contacts screen. This activity is never opened and does not
  * contain any real contact data for keeping this sample simple and focused.
  */
 public class ContactsActivity extends Activity {

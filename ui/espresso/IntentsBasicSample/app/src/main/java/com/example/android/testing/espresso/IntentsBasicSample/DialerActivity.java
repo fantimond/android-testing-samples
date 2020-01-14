@@ -46,7 +46,7 @@ public class DialerActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dialer);
-        mCallerNumber = (EditText) findViewById(R.id.edit_text_caller_number);
+        mCallerNumber = findViewById(R.id.edit_text_caller_number);
     }
 
     public void onCall(View view) {
