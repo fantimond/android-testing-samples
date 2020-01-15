@@ -15,5 +15,5 @@
   ~ limitations under the License.
   -->
 <resources>
-    <string name="app_name">Basic Espresso Web sample</string>
+    <string name="app_name">Espresso Web sample</string>
 </resources>

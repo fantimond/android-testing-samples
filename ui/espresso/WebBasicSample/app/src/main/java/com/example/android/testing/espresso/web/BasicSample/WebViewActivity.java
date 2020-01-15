@@ -45,7 +45,7 @@ public class WebViewActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
-        mWebView = (WebView) findViewById(R.id.web_view);
+        mWebView = findViewById(R.id.web_view);
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.loadUrl(urlFromIntent(getIntent()));
         mWebView.requestFocus();
