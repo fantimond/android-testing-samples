@@ -70,7 +70,7 @@ public class MultiWindowTest {
 
     /**
      * A JUnit {@link Rule @Rule} to launch your activity under test. This is a replacement
-     * for {@link android.test.ActivityInstrumentationTestCase2}.
+     * for android.test.ActivityInstrumentationTestCase2.
      * <p>
      * Rules are interceptors which are executed for each test method and will run before
      * any of your setup code in the {@link Before @Before} method.
@@ -106,8 +106,9 @@ public class MultiWindowTest {
     }
 
     @Test
-    public void autoCompleteTextView_oneSuggestion() {
-        // Type "South" to trigger one suggestion.
+    public void autoCompleteTextView_oneSuggestion() throws InterruptedException {
+        // Type "South " to trigger one suggestion.
+        // There's bug that cause the ending space character not typed.
         onView(withId(R.id.auto_complete_text_view))
                 .perform(typeTextIntoFocusedView("South "), closeSoftKeyboard());
 
@@ -115,6 +116,8 @@ public class MultiWindowTest {
         onView(withText("South China Sea"))
                 .inRoot(withDecorView(not(is(mActivity.getWindow().getDecorView()))))
                 .check(matches(isDisplayed()));
+
+        Thread.sleep(2000);
 
         // Should not be displayed.
         onView(withText("Southern Ocean"))

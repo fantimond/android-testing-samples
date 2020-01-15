@@ -43,8 +43,7 @@ public class SuggestActivity extends Activity {
                 android.R.layout.simple_dropdown_item_1line,
                 completions);
 
-        AutoCompleteTextView autoComplete =
-                (AutoCompleteTextView) findViewById(R.id.auto_complete_text_view);
+        AutoCompleteTextView autoComplete = findViewById(R.id.auto_complete_text_view);
         autoComplete.setAdapter(adapter);
     }
 }
