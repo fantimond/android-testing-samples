@@ -33,7 +33,8 @@
         </activity>
         <activity
             android:name=".PrivateProcessActivity"
-            android:process=":PID2">>
+            android:label="PrivateProcessActivity"
+            android:process=":PID2">
         </activity>
     </application>
 </manifest>

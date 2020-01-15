@@ -16,18 +16,18 @@
 
 package com.example.android.testing.espresso.multiprocesssample;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
 
 import static com.example.android.testing.espresso.multiprocesssample.Util.setCurrentRunningProcess;
 
 /**
  * Activity running in the default process which matches the application package
  */
-public class DefaultProcessActivity extends Activity {
+public class DefaultProcessActivity extends AppCompatActivity {
 
     private TextView textView;
 

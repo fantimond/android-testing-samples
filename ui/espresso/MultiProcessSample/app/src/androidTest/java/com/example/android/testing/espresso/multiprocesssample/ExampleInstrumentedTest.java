@@ -53,11 +53,12 @@ public class ExampleInstrumentedTest {
     @Test
     public void verifyAssertingOnViewInRemoteProcessIsSuccessful() {
         Log.d(TAG, "Checking main process name...");
-        onView(withId(R.id.textNamedProcess)).check(matches(withText(is(DEFAULT_PROC_NAME))));
+        onView(withId(R.id.textNamedProcess)).check(matches(withText(DEFAULT_PROC_NAME)));
 
         Log.d(TAG, "Starting activity in a secondary process...");
         onView(withId(R.id.startActivityBtn)).perform(click());
 
+        // Can't pass on Google Galaxy Nexus
         Log.d(TAG, "Checking private process name...");
         onView(withId(R.id.textPrivateProcessName))
                 .check(matches(withText(is(DEFAULT_PROC_NAME + ":PID2"))));

@@ -16,7 +16,6 @@
 
 package com.example.android.testing.espresso.multiprocesssample;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -24,6 +23,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
 
 import static com.example.android.testing.espresso.multiprocesssample.Util.setCurrentRunningProcess;
 
@@ -34,7 +34,7 @@ import static com.example.android.testing.espresso.multiprocesssample.Util.setCu
  * <p>From D.A.C: "If the name assigned to this attribute begins with a colon (':'), a new process,
  * private to the application, is created when it's needed and the activity runs in that process."
  */
-public class PrivateProcessActivity extends Activity implements OnItemClickListener {
+public class PrivateProcessActivity extends AppCompatActivity implements OnItemClickListener {
 
     private TextView privateProcessNameTextView;
     private TextView selectedListItemTextView;
