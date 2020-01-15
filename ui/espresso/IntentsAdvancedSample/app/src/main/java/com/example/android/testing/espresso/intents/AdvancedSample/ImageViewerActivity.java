@@ -41,7 +41,7 @@ public class ImageViewerActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_viewer);
-        mImageView = (ImageView) findViewById(R.id.imageView);
+        mImageView = findViewById(R.id.imageView);
     }
 
     private void dispatchTakePictureIntent() {
